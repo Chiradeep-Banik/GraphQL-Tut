@@ -1,0 +1,24 @@
+{
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "env": {
+        "node": true,
+        "mongo": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "global-require": [
+            "error"
+        ]
+    }
+}
