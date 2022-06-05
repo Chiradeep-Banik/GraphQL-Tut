@@ -1,6 +1,8 @@
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
-const { GraphQLSchema,GraphQLObjectType,GraphQLString,buildSchema } = require('graphql'); 
+// const { GraphQLSchema,GraphQLObjectType,GraphQLString,buildSchema } = require('graphql');
+
+const helloSchema = require('./Schema/helloSchema.js');
 
 const PORT = process.env.PORT || 1313;
 
@@ -30,12 +32,6 @@ app.get('/',(req,res)=>{
 //     graphiql: true,
 //     schema: dummyScema
 // }));
-var schema = buildSchema(`
-  type Query {
-    hello: String,
-    fuck: String
-  }
-`);
 
 // The root provides a resolver function for each API endpoint
 var root = {
@@ -48,7 +44,7 @@ var root = {
 };
 
 app.use('/graphql', graphqlHTTP({
-  schema: schema,
+  schema: helloSchema,
   rootValue: root,
   graphiql: true,
 }));
